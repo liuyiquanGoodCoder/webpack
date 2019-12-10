@@ -1,4 +1,5 @@
 const path  = require('path')
+const ExtractText = require('extract-text-webpack-plugin')
 
 module.exports = {
     //Javascript entry
@@ -8,11 +9,19 @@ module.exports = {
         filename:'chunk.js',
         path:path.resolve(__dirname,'./dist')
     },
+    // devServer: {
+    //     contentBase: path.join(__dirname, 'dist'),
+    //     compress: true,
+    //     port: 9000
+    // },
     module:{
         rules:[
             {
                 //use RegExr to transfer css
                 test:/\.css$/,
+                // use:ExtractText.extract({
+                //     use:['css-loader']
+                // })
                 use:['style-loader','css-loader']
                 // use:[
                 //     'style-loader',
@@ -25,5 +34,11 @@ module.exports = {
                 // ]
             }
         ]
-    }
+    },
+    plugins:[
+        new ExtractText({
+            filename:`[name].css`
+        }),
+    ]
+
 };

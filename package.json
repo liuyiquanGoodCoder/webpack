@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.js",
+    "serve":"webpack-dev-server --hot --devtool source-map",
     "test": "test"
   },
   "author": "liuyiquan",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^3.3.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   }
 }
